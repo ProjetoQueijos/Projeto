@@ -82,10 +82,14 @@ const LoginForm = () => {
       <div className="App-form">
          
 
-          <UIButton type="submit" className="btn1"
+          <UIButton type="submit" className="btn"
           component={Link} to={"/"}  onClick={login}>
           Login
                 </UIButton>
+
+                <br></br>
+
+        <a href="/cadastro"> Primeira vez por aqui? Crie uma conta gratuitamente! </a>
 
 
         </div>

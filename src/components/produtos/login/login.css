@@ -30,23 +30,5 @@
 
 
 
-.btn{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    align-items: center; 
-}
 
-.btn1{
-    color: white;
-}
 
-.botao{
-    background-color: #fff;
-}
-
-.ui-button--contained-green {
-    color: #6d6201;
-    background-color: #060b26;
-    border: 1px solid #060b26;
-  }

@@ -7,6 +7,7 @@ import 'firebase/storage';
 import { database } from '../firebase/index.js';
 import swal from 'sweetalert';
 import { v4 as uuidv4 } from 'uuid';
+import UIButton from 'components/UI/Button/Button';
 
 
 
@@ -95,7 +96,7 @@ const Cadastro = () => {
         <div>
             <header className="App-header">
             <form className="App-form" target="_blank" method="get"  > {/*  onSubmit={onSubmit } */}
-          <label>
+          <label className="lab">
         
           <div className="Titulo">
           <h1>Cadastro de Usuários</h1>
@@ -136,13 +137,25 @@ const Cadastro = () => {
           <input type="radio" name="pessoa" value="cliente" id="cliente"/> */}
          
         <br></br>
-            
-            <button type="submit" onClick={cadastrar}>Cadastrar</button>
+        
+
+         {/*    <button type="submit" onClick={cadastrar}>Cadastrar</button> */}
+
+      
+    
+            {/* 
             <input type="reset" className="botao" value="Limpar Campos" />
-            
+             */}
           </label>
+          <UIButton type="submit" className="btn"
+           onClick={cadastrar}>
+          Cadastrar
+                </UIButton>
         </form>
+        
       </header>
+          
+      
         </div>
         
         
