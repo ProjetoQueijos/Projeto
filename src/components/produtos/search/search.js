@@ -28,7 +28,7 @@ const ProdutosSearch = () => {
     url: '/produtos',
     method: 'get',
   }) */
-  const temp=[]
+  const temp=[];
   
   const getData = async()=>{
         
@@ -43,22 +43,35 @@ const ProdutosSearch = () => {
         temp.push(item.val());
       })
     });
-    console.log("produtos:", temp);
+   
     setProdutos(temp);
+
     
+    temp.map( item => {
+      
+      let id = item.id;
+      localStorage.setItem("@idproduto", id);
+
+
+      
+
+      const params = item.nome;
+      if (search) {
+        params.title_like = search;
+      }
+      
+
+    })
   }
 
-
+  
 
   useEffect(() => {
 
     
     
 
-    const params = {};
-    if (search) {
-      params.title_like = search;
-    }
+   
     /* axios.get('http://localhost:4000/produtos?_embed=comments&_order=desc&_sort=id', { params })
       .then((response) => {
         setProdutos(response.data);

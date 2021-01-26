@@ -50,7 +50,7 @@ const Form = ({ id }) => {
     ev.preventDefault();
 
     const id = uuidv4();
-    
+    localStorage.setItem('@idprod', id);
     database.ref(`/produtos/` + id ).set({
       id: id,
       nome:values.nome,
@@ -61,7 +61,7 @@ const Form = ({ id }) => {
       quantidade: values.quantidade,
     }).then(()=>alert('Cadastrado com sucesso!')).catch((err)=>alert('Erro ao cadastrar: ' + err));
   
-  
+    
   
   }
 

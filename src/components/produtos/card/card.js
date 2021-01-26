@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './card.css';
 import {Link} from "react-router-dom";
 import {BiTrash} from 'react-icons/bi';
-import {GrFavorite} from 'react-icons/gr';
 import UIButton from 'components/UI/Button/Button';
 import {isLogged} from 'components/utils/auth';
 import swal from 'sweetalert';
@@ -13,7 +12,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
-import { render } from '@testing-library/react';
+
 
 
 
@@ -23,14 +22,16 @@ const verproduto = (produtos) => {
   localStorage.setItem('@descricao', produtos.descricao);
   localStorage.setItem('@src', produtos.src);
   localStorage.setItem('@quantidade', produtos.quantidade);
-
  
 }
+/* 
+const deleting = () =>{
+  let id = localStorage.getItem("@idproduto");
+  let userRef = firebase.database.ref('Produtos/' + id);
+  userRef.remove();
+} */
 
-  const logado = (onClickDelete) => isLogged() 
-    ?onClickDelete() 
-    :swal("Faça login para executar esta ação.")
-
+let id = localStorage.getItem("@idproduto");
 
 const ratingChanged = (newRating) =>{
   console.log(newRating);
@@ -50,7 +51,7 @@ starCountRef.on('value', (snapshot) =>{
 
  
 
-const ProdutosCard = ({ produtos, onClickDelete, id}) => (
+const ProdutosCard = ({ produtos}) => (
  
   
 
@@ -87,14 +88,14 @@ const ProdutosCard = ({ produtos, onClickDelete, id}) => (
           Ver Produto
         </UIButton>
        
-        {isLogged()?<UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null }
+         {isLogged()?<UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null }
         {isLogged()?<div className="favorite" > Favoritar </div> : null}
         
         
         </div>
       </footer>
-      {isLogged()?<button type="button" className="produtos-card__delete-button" onClick={()=>logado(onClickDelete)}> <BiTrash/> </button> : null}
-    </div>
+       {isLogged()?<button type="button" className="produtos-card__delete-button" > <BiTrash/> </button> : null}
+     </div>
   </div>
   );
 
