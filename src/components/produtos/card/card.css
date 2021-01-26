@@ -8,6 +8,14 @@
   align-items: flex-start;
   margin-bottom: 20px;
   position: relative;
+  
+}
+
+@media only screen and (max-width: 400px) {
+  .produtos-card{
+    width: 91.8%;
+   
+  }
 }
 
 
@@ -23,12 +31,29 @@
   font-size: 20px;
   color: #060b26;
   margin-left: 15px;
+  
+} 
+
+@media only screen and (max-width: 400px) {
+  .produtos-card__title{
+   /* background-color: yellow; */
+   font-size: 15px;
+   margin-left: 8px;
+  }
 }
 
 .produtos-card__price {
   font-size: 26px;
   font-weight: 700;
   color: #060b26;
+}
+
+@media only screen and (max-width: 400px) {
+  .produtos-card__price{
+   /* background-color: yellow; */
+   font-size: 20px;
+   margin-left: 8px; 
+  }
 }
 
 .produtos-card__footer {
@@ -62,8 +87,16 @@
   margin-left: 400px;
   display: block;
   margin-top: 0px;
+
 }
 
+/* @media only screen and (max-width: 400px) {
+  .btn-card{
+     margin-right: 50%; 
+     background-color: pink; 
+   
+  }
+}  */
 .favorite{
   align-items: center;
   justify-content: center;
