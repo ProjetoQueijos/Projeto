@@ -10,7 +10,6 @@ const Produto = () => {
   const descricao = localStorage.getItem('@descricao');
   const quantidade = localStorage.getItem('@quantidade');
   const src = localStorage.getItem('@src');
-  const id = localStorage.getItem('@idprod');
     return (
         <div className="container">
             <h1 className="titulo">{`Produto: ${titulo}`}</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './card.css';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {BiTrash} from 'react-icons/bi';
 import UIButton from 'components/UI/Button/Button';
 import {isLogged} from 'components/utils/auth';
@@ -31,35 +31,21 @@ const deleting = () =>{
   userRef.remove();
 } */
 
-let id = localStorage.getItem("@idproduto");
 
 const ratingChanged = (newRating) =>{
   console.log(newRating);
 }
 
-/* var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-starCountRef.on('value', (snapshot) =>{
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});
- */
 
-
-
-
-
-
- 
-
-const ProdutosCard = ({ produtos}) => (
- 
+const ProdutosCard = ({ produtos, id}) => (
+  
   
 
   <div className="produtos-card" >
     
     <img src={produtos.src} alt={produtos.src} className="produtos-card__image" />
     <div className="produtos-card__info">
-      <h1 className="produtos-card__title" id="titulo">{produtos.nome}</h1>
+      <h1 className="produtos-card__title">{produtos.nome}</h1>
       <span className="produtos-card__price" >R$ {produtos.price}</span>
       <br></br>
 
@@ -81,6 +67,7 @@ const ProdutosCard = ({ produtos}) => (
      
         
         <div className="btn-card">
+          {console.log("teste", id)}
         <UIButton
           component={Link}
           to={`/produto/${id}`}

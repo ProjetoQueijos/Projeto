@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import ProdutosList from 'components/produtos/list/list';
 import UIButton from 'components/UI/Button/Button';
 import { v4 as uuidv4 } from 'uuid';
@@ -12,32 +12,17 @@ import { Link } from 'react-router-dom';
 import './search.css'
 
 
-/* const baseParams = {
-  _embed: 'comments',
-  _order: 'desc',
-  _sort: 'id',
-  _limit: 5,
-}; */
+
 
 const ProdutosSearch = () => {
 
   const [produtos, setProdutos] = useState([]);
   const [search, setSearch] = useState('');
-  /* const [load, loadInfo] = useApi({
-    debounceDelay: 300,
-    url: '/produtos',
-    method: 'get',
-  }) */
+ 
   const temp=[];
   
   const getData = async()=>{
-        
-    /* await firebase.database().ref('/produtos').once('value', (snap)=> {
-      snap.forEach((item)=> {
-        temp.push(item.val())
-      })
-    }); */
-  
+      
     await firebase.database().ref(`/produtos`).once('value').then((snapshot)=>{
       snapshot.forEach((item)=> {
         temp.push(item.val());
@@ -46,46 +31,25 @@ const ProdutosSearch = () => {
    
     setProdutos(temp);
 
-    
-    temp.map( item => {
+   /*  temp.map( item => {
       
       let id = item.id;
-      localStorage.setItem("@idproduto", id);
+      console.log("ESSE È O ID2:", id);
+    
+      localStorage.setItem("@idprod", id);
+    }) */
 
 
-      
+  }
+  useEffect(() => {
+      getData();
 
-      const params = item.nome;
+      const params = {}
       if (search) {
         params.title_like = search;
       }
       
-
-    })
-  }
-
-  
-
-  useEffect(() => {
-
-    
-    
-
-   
-    /* axios.get('http://localhost:4000/produtos?_embed=comments&_order=desc&_sort=id', { params })
-      .then((response) => {
-        setProdutos(response.data);
-      }); */
-      
-      getData();
-
-     
-
-      
   }, []);
-
-
-
 
   return (
     
@@ -109,26 +73,22 @@ const ProdutosSearch = () => {
                 </div>
 
       </header>
-      
+    
       <input
         className="produtos-search__input"
         type="search"
         placeholder="Pesquisar por produto"
         value={search}
         onChange={(ev) => setSearch(ev.target.value)}
-      />
+      /> 
+
 <p>
-  {/* {JSON.stringify(produtos)} */}
+  
 </p>
       {/* EXIBINDO PRODUTOS */}
       <ProdutosList
         produtos={produtos}
-        /* loading={!produtos.length}
-        refetch={() => {
-          load({
-            params: baseParams
-          })
-        }} */
+        
       />
     </div>
 
