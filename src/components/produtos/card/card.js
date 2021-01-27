@@ -22,8 +22,10 @@ const verproduto = (produtos) => {
   localStorage.setItem('@descricao', produtos.descricao);
   localStorage.setItem('@src', produtos.src);
   localStorage.setItem('@quantidade', produtos.quantidade);
- 
+  localStorage.setItem('@id', produtos.id);
 }
+
+
 /* 
 const deleting = () =>{
   let id = localStorage.getItem("@idproduto");
@@ -37,7 +39,7 @@ const ratingChanged = (newRating) =>{
 }
 
 
-const ProdutosCard = ({ produtos, id}) => (
+const ProdutosCard = ({ produtos}) => (
   
   
 
@@ -67,15 +69,15 @@ const ProdutosCard = ({ produtos, id}) => (
      
         
         <div className="btn-card">
-          {console.log("teste", id)}
+          
         <UIButton
           component={Link}
-          to={`/produto/${id}`}
+          to={`/produto/${produtos.id}`}
         onClick={()=>verproduto(produtos)}>
           Ver Produto
         </UIButton>
        
-         {isLogged()?<UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null }
+         {isLogged()?<UIButton component={Link} to={`/edit/${produtos.id}`} className="btn-card__edit" >Editar</UIButton> : null }
         {isLogged()?<div className="favorite" > Favoritar </div> : null}
         
         
