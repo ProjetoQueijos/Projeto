@@ -19,17 +19,20 @@ const ProdutosSearch = () => {
   const [produtos, setProdutos] = useState([]);
   const [search, setSearch] = useState('');
  
-  const temp=[];
+  const data=[];
   
   const getData = async()=>{
-      
-    await firebase.database().ref(`/produtos`).once('value').then((snapshot)=>{
+    
+    await firebase.database().ref(`/produtos/`).once('value').then((snapshot)=>{
       snapshot.forEach((item)=> {
-        temp.push(item.val());
+        
+        data.push(item.val());
+        console.log("id", data);
+        
       })
     });
    
-    setProdutos(temp);
+    setProdutos(data);
 
    /*  temp.map( item => {
       
@@ -41,6 +44,9 @@ const ProdutosSearch = () => {
 
 
   }
+
+
+
   useEffect(() => {
       getData();
 

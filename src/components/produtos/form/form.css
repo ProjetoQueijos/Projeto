@@ -39,3 +39,7 @@
 .produtos-title{
     color:#060b26;
 }
+
+.produtos-form__group select{
+    width: 84.5%;
+}

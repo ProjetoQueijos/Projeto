@@ -21,7 +21,7 @@ const initialValue = {
 
 const Form = ({ id }) => {
 
-  const [values, setValues] = useState(initialValue);
+  const [values, setValues] = useState(id ? null : initialValue);
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
@@ -29,7 +29,7 @@ const Form = ({ id }) => {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3000/Produtos/${id}`)
+      axios.get(`http://localhost:4000/Produtos/${id}`)
         .then((response) => {
           setValues(response.data);
         })
@@ -50,7 +50,7 @@ const Form = ({ id }) => {
     ev.preventDefault();
 
     const id = uuidv4();
-  
+    localStorage.setItem('@idprod', id);
     database.ref(`/produtos/` + id ).set({
       id: id,
       nome:values.nome,
@@ -133,6 +133,7 @@ const Form = ({ id }) => {
             <label htmlFor="queijaria">Selecione a Queijaria</label>
             
             <select  onChange={onChange} name="queijaria" id="queijaria" value={values.queijaria}>
+               <option >Selecione a queijaria</option>
                <option value="Edson Mussarela">Edson Mussarela</option>
                <option value="JC Queijaria">JC Queijaria </option>
                <option value="Liu Queijaria">Liu Queijaria</option>

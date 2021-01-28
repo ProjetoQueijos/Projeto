@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './card.css';
 import {Link, useParams} from "react-router-dom";
 import {BiTrash} from 'react-icons/bi';
@@ -17,12 +17,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const verproduto = (produtos) => {
+  
   localStorage.setItem('@titulo', produtos.nome);
   localStorage.setItem('@preco', produtos.price);
   localStorage.setItem('@descricao', produtos.descricao);
   localStorage.setItem('@src', produtos.src);
   localStorage.setItem('@quantidade', produtos.quantidade);
   localStorage.setItem('@id', produtos.id);
+  localStorage.setItem('@queijaria', produtos.queijaria);
 }
 
 
@@ -39,9 +41,45 @@ const ratingChanged = (newRating) =>{
 }
 
 
-const ProdutosCard = ({ produtos}) => (
+
+
+const ProdutosCard = ({ produtos}) => {
   
+
+  /* const [setId] = useState([]); */
   
+ 
+  const data=[];
+  
+  const getData = async()=>{
+      
+  /*   await firebase.database().ref(`/produtos`).child('id').once('value').then((snapshot)=>{
+      snapshot.forEach((item)=> {
+        
+        data.push(item.val());
+        console.log("id", data);
+      })
+    }); */
+
+    await firebase.database().ref('/produtos').once('value', (snapshot) => {
+      snapshot.forEach((item)=> {
+        
+        data.push(item.val());
+        
+        
+      });
+      }
+    )
+
+  }
+
+
+
+  useEffect(() => {
+    getData();
+  }, []); 
+  
+  return(
 
   <div className="produtos-card" >
     
@@ -51,7 +89,7 @@ const ProdutosCard = ({ produtos}) => (
       <span className="produtos-card__price" >R$ {produtos.price}</span>
       <br></br>
 
-      {isLogged()? <span className='avaliacao'>Avaliação<ReactStars
+     {/*  {isLogged()? <span className='avaliacao'>Avaliação<ReactStars
           count={5}
           onChange={ratingChanged}
           size={24}
@@ -61,12 +99,8 @@ const ProdutosCard = ({ produtos}) => (
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
           /></span>
-          : null}
+          : null} */}
       <footer className="produtos-card__footer">
-          
-      
-     
-     
         
         <div className="btn-card">
           
@@ -86,6 +120,6 @@ const ProdutosCard = ({ produtos}) => (
        {isLogged()?<button type="button" className="produtos-card__delete-button" > <BiTrash/> </button> : null}
      </div>
   </div>
-  );
+  )};
 
 export default ProdutosCard;
