@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  /* background-color: red; */
+  /* background-color: green; */
   margin-bottom: 20px;
 }
 .produtos-search{
@@ -49,9 +49,13 @@ color:#fff;
 */
 .btn{
 
-background-color: #060b26;
+background-color:  #060b26;
 border: none;
 color:#fff;
+/* justify-content: flex-end;
+text-align: center;
+align-items: center; */
+/* margin-left: 58.5%; */
 }
 
 /* @media only screen and (max-width: 400px) {
@@ -63,8 +67,11 @@ color:#fff;
 
 .bt{
 justify-content: center;
+text-align: end;
 display: block;
 align-items: center;
+flex:1;
+
 
 }
 
@@ -72,16 +79,17 @@ align-items: center;
 
 
 .titles{
-padding-right: 50%;
+ padding-right: 20%; 
 /* margin-left: 80px; */
-   
+  
+ width: 50%;
 }
 
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) {
 .titles{
- /* background-color: yellow; */
+ /* background-color: yellow; 
  font-size: 70%;
  margin-left: 80px;
  
 }
-}
+} */

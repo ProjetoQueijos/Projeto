@@ -7,6 +7,12 @@
     align-items: center;
    
   }
+  .titulo{
+    padding-left: 30%;
+    color: #fff;
+    padding-right: 35%; 
+    width: 50%;
+  }
 
   .logomenu{
     border-radius: 800px;

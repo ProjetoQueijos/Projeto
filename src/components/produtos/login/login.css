@@ -4,13 +4,14 @@
     flex-direction: column;
     margin-bottom: 15px;
     align-items: center;
-
+    
 }
 
 .produtos-form__group{
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    
 }
 
 .produtos-form__group label{
@@ -28,7 +29,10 @@
     width: 300px;
 }
 
-
-
-
-
+.blogin{
+    background-color: #060b26 ;
+    border: none;
+    color:#fff;
+    padding-right: 10%;
+    padding-left: 10%;
+}

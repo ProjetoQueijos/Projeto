@@ -4,12 +4,15 @@
     flex-direction: column;
     margin-bottom: 15px;
     align-items: center;
+    
+    
 
 }
 .produtos-form__group{
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    
 }
 
 .produtos-form__group label{
@@ -38,8 +41,43 @@
 
 .produtos-title{
     color:#060b26;
+    
+}
+
+.produtos-title h1{
+   text-align: center;
+    
 }
 
 .produtos-form__group select{
-    width: 84.5%;
+    width: 100%;
+}
+
+.up{
+    margin-top: 5%;
+}
+
+.im {
+    text-align: center;
+    width: 100%;
+}
+
+
+.produtos-form__group_salvar{
+    width:100%;
+    text-align: center; 
+}
+.bot{
+    text-align: center;
+    background-color:  #060b26;
+    border: none;
+    color:#fff;
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    
+}
+.botao{
+    text-align: center;
+    
 }

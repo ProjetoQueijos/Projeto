@@ -5,9 +5,8 @@ import { storage,database } from '../firebase/index.js';
 import './form.css';
 import swal from 'sweetalert';
 import { v4 as uuidv4 } from 'uuid';
-
-
-
+import UIButton from 'components/UI/Button/Button';
+import {Link} from "react-router-dom";
 
 
 const initialValue = {
@@ -148,21 +147,27 @@ const Form = ({ id }) => {
             <br></br>
             <div className="produtos-form__group">
               <label htmlFor="imageUrl">Imagem</label>
-              <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl} />
-              <div>
+              <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl} className="imagem" />
+              <div className="im">
                 <progress value={progress} max="100" />
                 <br />
                 <br />
 
-                <input type="file" onChange={handleChange} />
-                <button onClick={handleUpload}>Upload</button>
+                <input type="file" onChange={handleChange} /><br></br>
+                <button className="up" onClick={handleUpload}>Upload</button>
                 <br />
                 {/* {url} */}
                 <br />
                 {/* <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" width="120px" height="120px" /> */}
               </div>
-              <button className="produtos-form__group" type="submit">Salvar</button>
-
+              <button className="produtos-form__group_salvar" type="submit"> Salvar</button>
+                {/* <div className="botao">
+              {/* <UIButton className="produtos-form__group_salvar" type="submit">Salvar</UIButton> 
+                <UIButton className="bot" component={Link} to={"/"} theme="contained-green">
+                Salvar
+                </UIButton>
+                </div> */}
+            
             </div>
             
             <div>

@@ -8,7 +8,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
-
+import './login.css';
 
 
 /* const initialValue = {
@@ -82,7 +82,7 @@ const LoginForm = () => {
       <div className="App-form">
          
 
-          <UIButton type="submit" className="btn"
+          <UIButton type="submit" className="blogin"
           component={Link} to={"/"}  onClick={login}>
           Login
                 </UIButton>
@@ -92,7 +92,8 @@ const LoginForm = () => {
         <a href="/cadastro"> Primeira vez por aqui? Crie uma conta gratuitamente! </a>
 
 
-        </div>
+      </div>
+      
     </div>
     
   )

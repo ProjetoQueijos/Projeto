@@ -4,7 +4,10 @@
     text-decoration: none;
     color: black;
     padding: 8px 10px;
+    flex: 1;
     white-space: nowrap;
+    
+    
   }
   
   .ui-button--bordered-blue {

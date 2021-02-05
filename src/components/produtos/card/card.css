@@ -8,15 +8,16 @@
   align-items: flex-start;
   margin-bottom: 20px;
   position: relative;
+  flex:1;
   
 }
 
-@media only screen and (max-width: 400px) {
+ @media only screen and (max-width: 500px) {
   .produtos-card{
-    width: 91.8%;
+    width: 92.8%;
    
   }
-}
+} 
 
 
 .produtos-card__image {
@@ -31,45 +32,56 @@
   font-size: 20px;
   color: #060b26;
   margin-left: 15px;
+  flex:1;
   
 } 
 
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) {
   .produtos-card__title{
-   /* background-color: yellow; */
+   /* background-color: yellow; 
    font-size: 15px;
    margin-left: 8px;
   }
-}
+} */
 
 .produtos-card__price {
   font-size: 26px;
   font-weight: 700;
   color: #060b26;
+  flex:1;
 }
 
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) {
   .produtos-card__price{
-   /* background-color: yellow; */
+   /* background-color: yellow; 
    font-size: 20px;
    margin-left: 8px; 
   }
-}
+} */
 
 .produtos-card__footer {
-  display: block;
-  align-items: center;
+  /* display: block;
+  align-items: center; 
+  justify-content: center;   */
+  margin-top: 5%;
+  text-align: start; 
+  margin-left: 5%;
+  width: 100%; 
+  
 }
 
-.produtos-card__comment {
+/* .produtos-card__comment {
   color: #95A5A6;
+  
   font-weight: 300;
+  flex:1;
 }
 
 .produtos-card__comments-count {
   margin-left: auto;
   margin-right: 10px;
   color: #060b26;
+  flex:1;
 }
 
 .produtos-card__link {
@@ -79,16 +91,21 @@
   text-decoration: none;
   padding: 8px 10px;
   margin-right: 20px;
-}
+  flex:1;
+} */
 
-.btn-card{
-  align-items: center;
-  justify-content: center;
-  margin-left: 400px;
-  display: block;
-  margin-top: 0px;
 
-}
+
+/* .btn-card{
+  background-color: hotpink;
+  /* text-align: left; 
+  align-items: center; 
+  justify-content: center; 
+  /* margin-left: 400px; */
+  /* display: block; */
+  /* margin-top: 0px;
+  justify-content: flex-start; 
+} */
 
 /* @media only screen and (max-width: 400px) {
   .btn-card{
@@ -102,11 +119,15 @@
   justify-content: center;
   display: block;
   margin-top: 0px;
-  margin-left: 195px;
+  margin-left: 10%;
+  
+  flex:1;
 }
 
 .btn-card__edit{
   margin-left: 8px;
+  flex:1;
+  
 }
 
 .produtos-card__delete-button{
@@ -117,12 +138,14 @@
   position: absolute;
   top: 8px;
   right: 8px;
+  cursor: pointer;
+  flex:1;
 }
 
 .avaliacao{
   display: flex;
   margin-top: 10px;
   flex-direction: row;
-
+  flex:1;
   
 }
