@@ -1,9 +1,9 @@
 import React from 'react';
 import './card.css';
-import {Link} from "react-router-dom";
-import {BiTrash} from 'react-icons/bi';
+import { Link } from "react-router-dom";
+import { BiTrash } from 'react-icons/bi';
 import UIButton from 'components/UI/Button/Button';
-import {isLogged} from 'components/utils/auth';
+import { isLogged } from 'components/utils/auth';
 import swal from 'sweetalert';
 import ReactStars from "react-rating-stars-component";
 import 'components/produtos/list/list.js';
@@ -23,7 +23,7 @@ const verproduto = (produtos) => {
   localStorage.setItem('@src', produtos.src);
   localStorage.setItem('@quantidade', produtos.quantidade);
   localStorage.setItem('@queijaria', produtos.queijaria);
- 
+
 }
 /* 
 const deleting = () =>{
@@ -34,7 +34,7 @@ const deleting = () =>{
 
 let id = localStorage.getItem("@idproduto");
 
-const ratingChanged = (newRating) =>{
+const ratingChanged = (newRating) => {
   console.log(newRating);
 }
 
@@ -50,11 +50,11 @@ starCountRef.on('value', (snapshot) =>{
 
 
 
- 
 
-const ProdutosCard = ({ produtos}) => (
- 
-  
+
+const ProdutosCard = ({ produtos }) => (
+
+
 
   <div className="produtos-card" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -76,28 +76,28 @@ const ProdutosCard = ({ produtos}) => (
           /></span>
           : null} */}
 
-          
-        <footer className="produtos-card__footer">
-          
-         
-         <UIButton className="verP" component={Link} to={`/produto/${id}`}
-        onClick={()=>verproduto(produtos)}>
-          Ver Produto
-        </UIButton> 
-         
-        
-       
-         {isLogged()?<UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null }
-        {isLogged()?<div className="favorite" > Favoritar </div> : null}
-        
-        
-        
-      </footer>  
-      
 
-       {isLogged()?<button type="button" className="produtos-card__delete-button" > <BiTrash/> </button> : null}
-     </div> 
+      <footer className="produtos-card__footer">
+
+
+        <UIButton className="verP" component={Link} to={`/produto/${id}`}
+          onClick={() => verproduto(produtos)}>
+          Ver Produto
+        </UIButton>
+
+
+
+        {isLogged() ? <UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null}
+        {isLogged() ? <div className="favorite" > Favoritar </div> : null}
+
+
+
+      </footer>
+
+
+      {isLogged() ? <button type="button" className="produtos-card__delete-button" > <BiTrash /> </button> : null}
+    </div>
   </div>
-  );
+);
 
 export default ProdutosCard;

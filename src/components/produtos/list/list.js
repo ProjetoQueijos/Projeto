@@ -6,17 +6,17 @@ import './list.css';
 
 
 
-const ProdutosList = ({loading, produtos, refetch}) =>{
-  /*   const [deleteProduto, deleteProdutoInfo] = useApi({
-        method: 'DELETE',
-    });
- */
+const ProdutosList = ({ loading, produtos, refetch }) => {
+    /*   const [deleteProduto, deleteProdutoInfo] = useApi({
+          method: 'DELETE',
+      });
+   */
 
-/* 
-    if (produtos === null || deleteProdutoInfo.loading){
-        return <div>Carregando...</div>
-    }
- */
+    /* 
+        if (produtos === null || deleteProdutoInfo.loading){
+            return <div>Carregando...</div>
+        }
+     */
     return (
         <div className='produtos-list'>
             {produtos.map((produtos =>
@@ -28,7 +28,7 @@ const ProdutosList = ({loading, produtos, refetch}) =>{
                     refetch();
                 }} */
                 />
-                ))}
+            ))}
         </div>
     );
 
