@@ -17,12 +17,13 @@ const ProdutosSearch = () => {
   const temp = [];
 
   const getData = async () => {
-    await firebase.database().ref(`/produtos`).once('value').then((snapshot) => {
+    const data = await firebase.database().ref(`/produtos`);
+
+    data.on('value', snapshot => {
       snapshot.forEach((item) => {
         temp.push(item.val());
       })
-    });
-
+    })
     setProdutos(temp);
   }
 
@@ -45,7 +46,7 @@ const ProdutosSearch = () => {
 
       <header className="produtos-search__header">
         <div className="titles">
-          <h1>Produtos Cadastrados</h1>
+          <h1>Produtos Cadastrados - {produtos.length}</h1>
         </div>
         <div className="bt">
           <UIButton className="btn"

@@ -52,52 +52,63 @@ starCountRef.on('value', (snapshot) =>{
 
 
 
-const ProdutosCard = ({ produtos }) => (
+const ProdutosCard = ({ produtos }) => {
+
+  const handleDelete = async (id) => {
+    // alert(id)
+    try {
+      await firebase.database().ref('/produtos/' + id).remove();
+      alert('Deletado com sucesso');
+    } catch (error) {
+      alert('Erro ao deletar: ' + error)
+    }
+  }
+
+  return (
+
+    <div className="produtos-card" >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <img src={produtos.src} alt={produtos.src} className="produtos-card__image" />
+      <div className="produtos-card__info">
+        <h1 className="produtos-card__title" id="titulo">{produtos.nome}</h1>
+        <span className="produtos-card__price" >R$ {produtos.price}</span>
+        <br></br>
+
+        {/* {isLogged()? <span className='avaliacao'>Avaliação<ReactStars
+            count={5}
+            onChange={ratingChanged}
+            size={24}
+            isHalf={true}
+            emptyIcon={<i className="far fa-star"></i>}
+            halfIcon={<i className="fa fa-star-half-alt"></i>}
+            fullIcon={<i className="fa fa-star"></i>}
+            activeColor="#ffd700"
+            /></span>
+            : null} */}
+
+
+        <footer className="produtos-card__footer">
+
+
+          <UIButton className="verP" component={Link} to={`/produto/${id}`}
+            onClick={() => verproduto(produtos)}>
+            Ver Produto
+          </UIButton>
 
 
 
-  <div className="produtos-card" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    <img src={produtos.src} alt={produtos.src} className="produtos-card__image" />
-    <div className="produtos-card__info">
-      <h1 className="produtos-card__title" id="titulo">{produtos.nome}</h1>
-      <span className="produtos-card__price" >R$ {produtos.price}</span>
-      <br></br>
-
-      {/* {isLogged()? <span className='avaliacao'>Avaliação<ReactStars
-          count={5}
-          onChange={ratingChanged}
-          size={24}
-          isHalf={true}
-          emptyIcon={<i className="far fa-star"></i>}
-          halfIcon={<i className="fa fa-star-half-alt"></i>}
-          fullIcon={<i className="fa fa-star"></i>}
-          activeColor="#ffd700"
-          /></span>
-          : null} */}
-
-
-      <footer className="produtos-card__footer">
-
-
-        <UIButton className="verP" component={Link} to={`/produto/${id}`}
-          onClick={() => verproduto(produtos)}>
-          Ver Produto
-        </UIButton>
+          {isLogged() ? <UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null}
+          {isLogged() ? <div className="favorite" > Favoritar </div> : null}
 
 
 
-        {isLogged() ? <UIButton component={Link} to={`/edit/${id}`} className="btn-card__edit" >Editar</UIButton> : null}
-        {isLogged() ? <div className="favorite" > Favoritar </div> : null}
+        </footer>
 
 
-
-      </footer>
-
-
-      {isLogged() ? <button type="button" className="produtos-card__delete-button" > <BiTrash /> </button> : null}
+        {isLogged() ? <button onClick={() => handleDelete(produtos.id)} type="button" className="produtos-card__delete-button" > <BiTrash /> </button> : null}
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default ProdutosCard;
